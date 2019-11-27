@@ -1,0 +1,523 @@
+JavaScript
+	ESCMAScript（核心）（教你如何编程）
+		变量
+			关键字
+				一组特定用途的关键字：\nVar、if、else、do、while、for、in ...
+				var、let用于定义变量，使用了let定义变量不能重复,使用const定义的叫常量，定义之后不能改变
+			保留字
+				未来有可能成为关键字
+			变量命名规则
+				由数字、字母、下划线和美元符号的一种或几种组成，不能以数字开头，严格区分大小写
+		数据类型
+			基本（原始）数据类型
+				数字（一般用于计算）
+					number
+				字符串
+					string
+				布尔
+					Boolean
+				undefined
+					undefined
+				null
+					object
+			使用console.log(typeof a);//在控制台看数据类型
+			引用（复合）数据类型
+				对象
+					object
+			Symbol   类型     表示独一无二的值
+		类型转换
+			显式转换
+				把字符串转换为数字
+					var num1 = parseInt();  //把字符串转换成整数数值（取出整数部分）
+					parseFloat();   //把字符串直接转换成浮点数(小数)
+					number();   //\n把字符串直接转换成数字（只有纯数字才能转换，如果里面包含有字母，就直接转为NAN【不是数字】）
+				把数字转换为字符串
+					console.log(string(num));    //直接转化为字符串
+					console.log(booLean(0));     //转换为布尔值，只有值为0，输出false，其他值输出为true
+			隐式转换
+		运算符
+			算术运算符
+				+
+				-
+				*
+				/
+				%
+					求余数  求n/m的余数    n/2看结果可知道n为奇偶
+				**
+					求次方 n**m   求n的m次方
+			赋值运算符
+				=
+					直接赋值
+				+=
+					box+=10;  //box结果为原先的box值加10
+				-=
+					box-=10;  //box结果为原先的box值减10
+				*=
+					box*=10;  //box结果为原先的box值乘10
+				/=
+					box/=10;  //box结果为原先的box值处以10
+				%=
+					box%=10;  //box结果为原先的box值处以10的余数
+			关系运算符
+				>
+					n>m；  //当结果为正确时，打印出来的结果为true，反之为false
+				<
+				<=
+				>=
+				==
+					用于判断是否相等，只判断数字是否相等
+				!=
+					用于判断是否不相等，不光比较数值，还比较类型
+				===
+					全等，精确相等，判断等号前后是否完全一致，不光比较数值，还比较类型
+				!==
+					只判断数字是否不相等
+			单目运算符
+			双目运算符
+				1+2；
+			三目运算符（相当于一个if  else判断）
+				let res1 = 1 > 2 ? 2 : 3;  console.log(res1)     // let res1 = 表达式1 ? 表达式2 : 表达式3;（如果表达式1的值为true，整个表达式的值为表达式2，反之结果为表达式3）
+		程序的基本结构
+			顺序结构
+				代码从上往下执行
+			选择结构（分支结构）
+				单分支
+					if
+						if （）{}
+					if   else
+						if （）{}else{}
+					switch
+						switch (){case:     console.log()      break;    default:  console.log()    break;     }
+				多分支
+				双分支
+			循环结构
+				while 循环
+					while（条件）{语句}
+				do while循环
+					do{语句}while(条件)
+				for循环
+					for(初始化表达式；条件；递增表达式){}
+				循环嵌套
+					外层循环循环一次，能层循环循环一圈
+				死循环
+					当不知道循环次数时，使用死循环然后再合适的时候结束循环
+					while（true）{}
+					for(;;){}
+				跳转，让代码不按既有的顺序循环
+					break
+						结束整个循环流程
+					continue
+						结束本次循环，返回循环的头部，进入下一轮循环
+		函数：一个函数只执行一个功能，可以反复调用
+			function函数
+				function 函数名称（）{函数中要执行的代码}
+				变量的声明提升（面试题）
+					在函数内部使用var命令声明的变量，会被提升到函数体的头部，js引擎在执行js时，会先做一个预解析。提前将所都要用到的变量先定义但是没有赋值
+					function foo(x){if(x>100){var tmp=x-100;}}\n//等同于\nfunction foo(x){var tmp;if(x>100){tmp=x-100;};}
+			函数表达式
+				采用变量赋值的方式声明函数
+				var 函数名称=function(){函数中要执行的代码}
+			内置函数
+				parseInt();//parseInt函数  功能：把参数转换成整数
+				parseFloat();//parseFloat函数 功能：转换为数字
+			函数和事件
+				鼠标事件
+					but.onclick=function(){}//鼠标左键单击
+					ondblclick  鼠标双击
+					onmousedown    鼠标按键抬起
+					onmousemove  鼠标按键在元素上移动
+					onmouseover   鼠标进入
+					onmouseout    鼠标移出    （与onmouseover是一对）  他们两个默认冒泡
+					onmouseleave    鼠标移出（与onmouseenter是一对）他们两个默认不冒泡
+					onmouseenter     鼠标移入
+					oncontextmenu   鼠标右键点击
+				根据id名获得HTML中的元素
+					let btn=document.getElementById('btn')
+				div.innerHTML获取元素内部的HTML代码
+				div.innerHTML='字符串'//相当于替换了DIV内部的原HTML代码
+				键盘事件
+					Onkeydown   键盘按键按下
+					Onkeyup    键盘按键抬起
+					Onkeypress    键盘按键按住
+				表单事件
+					Onblur   失去焦点
+					Onfocus    获取焦点
+					Onchange     内容修改
+			函数的返回值：return
+				如果没有return该函数将返回undefined
+			arguments 对象
+				在函数内部读取所有的参数
+				arguments【0】是第一个实参
+				arguments【1】是第二个实参
+				arguments【‘length’】用于求参数的长度
+				arguments.length 用于求参数的长度
+				console.log(arguments)  获取所有的实参
+			随机数
+				Math.random()
+					它是一个【0-1）之间的数值
+				parseInt(Math.random()*10)
+					它是一个【0-9）之间的整数
+			作用域
+				局部作用域
+					局部变量（形参都是局部变量）
+						使用var在函数内部定义的变量
+						使用let或者const在代码块中定义的变量
+				全局作用域
+					全局变量（在函数外部声明的）
+						全局变量会被同名的局部变量覆盖
+			递归函数
+				能用循环的都能用递归，但是一般都用循环，循环的效率比递归高
+				步骤
+					先找临界值
+					找本项和上一项的关系
+					假设当前函数已经可以用了，调用上一次的结果写出关系式
+			构造函数
+				函数名（首字母大写）
+				属性
+					this;//当使用new调用构造函数的时候,会自动创建一个this  是一个{}对象
+					this.name=name;this age=1;
+				方法
+					函数
+		数组
+			创建
+				字面量和构造函数
+			方法
+				尾部添加：push（改变原数组）
+				尾部删除：pop（改变原数组）
+				头部添加：unshift（改变原数组）
+				头部删除：shift（改变原数组）
+				复制数组：slice（不改变原数组）
+				删除数组：splice（改变原数组）
+				反转数组：reverse（改变原数组）
+				按字典方式排序：sort（改变原数组）
+				将数组转为字符串：join
+				把多个数组合并成为一个：concat（不改变原数组）
+				判断是不是数组Array.isArray（）
+				遍历数组中的每一个元素：arr.forEach(function(v,i){})
+				根据return后面的规则一一映射：arr.map(function(v,i){return v*1.3})
+				用于过滤满足条件的元素：arr.filter(function(v,i){return v>5})
+				累计：arr.reduce(function(v,i){return a+b})
+				数组中某个元素第一次出现的位置，找不到返回-1：arr.indexOf()
+				数组中某个元素最后一次出现的位置，找不到返回-1：arr.lastIndexOf()
+				判断是否数组中的每一个元素都符合某个条件：arr.every(function(v,i){return v>3})
+				判断是否数组中有某一个元素符合某个条件：arr.some(function(v,i){return v>3})
+				查找元素，返回元素，找不到返回undefined：arr.find(function(v,i){return v===3})
+				查找元素，返回元素所在的下标，找不到返回undefined：arr.findIndex(function(v,i){return v===3})
+				将可遍历的对象和伪数组以及arguments对象都转化为数组：Array.from
+				数组去重：Arrayfrom(new Set(arr))
+				数组去重：【...(new Set(arr))】
+				判断数组中是否包含某个元素：includes
+		字符串
+			创建
+				字面量
+				构造函数
+			方法【字符串中的所有方法都不改变原数组】
+				获取指定位置的字符：charAt
+				复制字符串：slice   substr    substring
+				查找某个字符串第一次出现的位置:indexOf
+				查找某个字符串最后一次出现的位置：lastIndexOf
+				去除字符串两端的空格：trim
+				将字符串全部转为小写：toLowerCase
+				将字符串全部转为大写：toUpperCase
+				替换字符串:str.replace(/b/g,'*')  将字符串中的所有的b替换为*
+				将字符串转换为数组：split
+				获取某个位置的字符的编码：charCodeAt
+				将编码转换为字符串：String.fromCharCode
+				判断字符串中是否包含某个字符串：includes
+				判断是否以某个字符串开头：startsWith
+				判断是否以某个字符串结尾：endswith
+				将字符串进行重复：repeat
+				查找与正则表达式相匹配的某个字符串第一次出现的位置：search
+				对字符串进行正则匹配，返回匹配的结果：match
+		Math
+			创建
+				字面量
+				构造函数
+			方法
+				Math.PI     Π值
+				Math.E     常数e的值
+				Math.abs    绝对值
+				Math.max   最大值
+				Math.min   最小值
+				arr.indexOf(Math.max(...arr))    获取数组中的最值的位置
+				Math.floor  求小于参数的最大整数值
+				Math.ceil   求大于参数的最小整数值
+				Math.round   四舍五入
+				Math.pow   求次方
+				Math.sqrt    求平方根
+				Math.sin     正弦，它的参数是弧度，180度对应的Π值
+				Math.random   随机数
+				随机m-n之间的整数：parseInt(Math.random()*(n-m+1))+m
+		Date
+			创建
+				字面量
+				构造函数
+					var now=new Date();     等同于    now.toString()
+			方法
+				getDate()    返回一个月中的某一天  （1-31）
+				getDay    返回一周中的某一天  （0-6）0代表周一
+				getMonth    返回月份 （0-11）   0代表一月
+				getFullYear   返回年份
+				getHours   返回当前小时    （0-23）
+				getMinutes   返回当前分钟   （0-59）
+				getSeconds  返回当前秒   （0-59）
+				getMillisenconds   返回毫秒数（0-999）
+				getTimes  返回1970年至今的毫秒数
+				设置即是将上面所有的get改为set
+				将日期转为毫秒数：Date.parse(new Date())   将日期转换为 相对于1970年的毫秒数
+		定时器
+			设置
+				let timer=setInterval(function(){},1000)
+			清除
+				clearInterval(timer)
+		延时器
+			设置
+				let timer=setTimeout(function(){},1000)
+			清除
+				clearTimeout(timer)
+	DOM（文档对象模型）
+		属性操作
+			自定义
+				className=''
+			设置
+				添加class名：classList.add
+				删除class名：classlist.remove
+				判断是否包含某个类名：classList.contains
+				替换类名：classList.replace('a','b')将a替换为b
+			最终样式
+				let style=box.currentStyle||getComputedStyle(box)
+			获取自定义样式的值：getAttribute
+		元素操作
+			CRUD
+				增（创建）
+					创建元素document.createElement()
+					添加子元素：appendChild()
+					创建文本节点：createTextNode
+					创建注释节点：createComment
+					复制元素节点：cloneNode（true）复制整个元素包括标签里的内容
+					复制元素节点：cloneNode（false）只是单纯的复制一个空标签
+					ul.insertBefore(li,ul.firstChild)将li标签添加为ul里的第一个子元素
+					ul.insertBefore(li,ul.lastChild)将li标签添加为ul里的最后一个子元素
+					box.insertBefore(span,p)将span标签插到box标签里的p标签之前
+					document.createDocumentFragment()    文档碎片     作为容器使用   ，避免频繁使用操作dom,减少渲染次数
+				删（删除）
+					this.remove删除当前元素
+					this.parentNode.remove删除当前操作的父元素
+					a.removeChild(b)将 a标签里的子元素b删除
+				改（修改）
+					a.replaceChild(b,c)将a标签中的c标签替换为b标签
+				查（查询）
+					document.querySelector()
+					document.querySelectorAll()
+					document.getElementById()
+					document.getElementsByClassName()
+					document.getElementsByName()
+					document.getElementsByTagName()
+		节点之间的关系
+			childNodes获取子节点
+			children获取子元素
+			parentNode获取父节点
+			parentElement父元素
+			firstChild第一个子节点
+			firstElementChild第一个子元素
+			lastChild最后一个节点
+			lastElementChild最后一个子元素
+			nextSibling下一个节点
+			nextElementSibling下一个元素节点
+			previousSibling上一个节点
+			previousElementSibling上一个元素节点
+			节点类型：nodeType
+			节点的值：nodeValue
+		Element
+			offsetWidth    元素可视区域的宽度（当元素被隐藏时值为零）
+			offsetHeight    元素可视区域的高度（当元素被隐藏时值为零）
+			offsetParent     返回最靠近当前元素的，且定位属性值不为static的父元素（类似于包含块）
+			offsetLeft   元素距离offsetParent的左边界偏移量
+			offsetTop   元素距离offsetLeft的右边界的偏移量
+		事件
+			HTML事件
+				onload:当页面加载完毕时触发
+				onselect:当用户选择文本框（input或者texteara）内容改变或者失去焦点后触发
+				onchange:当文本框（input或texteara）内容改变且失去焦点后触发
+				oninput:当（input或textarea）内部输入输入内容时触发
+				onfocus:当页面或元素获得焦点时在window及相关元素上面触发
+				onresize:当页面或者框架的大小发生变化时触发
+				onblur:当页面或者元素失去焦点时触发
+				onscoll:当用户滚动带滚动条的元素时触发
+				将元素滚动到可视区域（写聊天框时，一直使后面发送的内容显示）li.scrollIntoView();
+			鼠标事件
+				oncontextmenu:鼠标右键事件
+				onmousedown当鼠标点击时
+				btn.onmousedown=function(e){console.log(e.button)}          0是左键    1是滚轮     2是右键
+			键盘事件
+				onkeyup   当键盘按键释放
+				onkeydown  当键盘按键被按下
+				onkeypress   当用户按下键盘上的字符键触发
+				ctrlkey   Boolean类型  表示事件发生的时候ctrlkey键是否被按下
+				altkey    Boolean类型 表示事件发生时alt键是否被按下
+				shiftkey      Boolean类型   表示发生事件的时候shift按键是否被按下
+				获取键码的兼容性写法（通过键码判断用户是否按下了某个键）let keyCode=e.keyCode||e.which
+				组合键判断（即判断用户是否同时按下了两个键）
+					e.ctrlKey&&e.keyCode==13；  判断是否同时按下了ctrl和回车键
+			事件对象
+				获取
+					let e=evt||window.event
+				属性
+					event.button     当事件触发时哪个按键被按下
+					clienkX    鼠标光标相对窗口的左边界的位置
+					clienkX    鼠标光标相对窗口的右边界的位置
+					screenX  鼠标光标相对于屏幕的X坐标
+					screenY    鼠标光标相对于屏幕的Y坐标
+					offsetX  鼠标光标相对于事件源（e.target）的X坐标
+					offsetY    鼠标光标相对于事件源(e.target)的Y坐标
+					pageX  鼠标光标相对于页面的X坐标
+					pageY  鼠标光标相对于页面的Y坐标
+				事件源
+					target    事件在哪个元素上产生
+				事件冒泡
+					阻止事件冒泡的兼容性写法：e.stopPropagation();e.cancelBubble=true;
+			阻止默认事件
+				e.preventDefalt()       W3C的方式
+				e.returnValue=false        IE的方式
+			DOM2添加事件监听器
+				ele.addEventListenter(事件名，处理函数（回调函数），布尔值)【注：事件名不带on，是一个字符串，它默认是冒泡（false）】
+				IE兼容写法  attachEvent(事件名，处理函数)【注：事件名带on,它默认是捕获】
+			DOM2移除事件监听器
+				removeEventListener(事件名，处理函数，（false或者true）)【注：事件名不带on，是一个字符串，它默认是冒泡】
+				IE兼容写法       detachEvent（事件名，处理函数）【注：事件名带on,它默认是捕获】
+		正则
+			创建
+				字面量
+				构造函数
+					let reg=new RegExp('sss',ig)        i忽略大小写     g  全局匹配
+			方法
+				reg.test('a'):返回布尔值，表示当前正则表达式能否匹配参数字符串
+					如果test匹配的正则表达式含有g
+					,则每一次test方法都从上一次结束的位置开始向后匹配
+				reg.exec('a')     用于检索字符串中正则表达式的匹配，返回一个数值，其中存放的是所有匹配的结果，如未找到匹配，返回null
+			字符串方法结合正则使用
+				str.replace(reg,'b')    将str中满足reg的字符串替换为b
+				str.search(reg)     返回与正则 表达式相匹配的第一个值所在的下标，不存在返回-1
+				str.match(reg)    返回str中所有匹配reg的结果
+			限定符
+				*      匹配前面的子表达式零次或多次
+				+       匹配前面的子表达式一次或多次
+				？    匹配前面的子表达式零次或一次
+				{n}     匹配前面的子表达式n次
+				{n,m}     最少匹配n次，最多匹配m次
+			字符匹配符
+				[0-9]     匹配0-9中的任意一个字符
+				[^0-9]    匹配除了0-9的任意一个字符
+				[a-z]     26个小写字母
+				[A-Z]    26个大写字母
+				\d    相当于【0-9】
+				\D   相当于【^0-9】
+				\w   相当于【0-9a-zA-Z】
+				\W   相当于【^0-9a-zA-Z】
+				\s   匹配空格（包括换行符，制表符，空格符等）
+				\S     匹配非空格的字符
+				.        匹配除了\n  （换行） 之外的任何字符
+			定位符
+				^    限定开始（匹配输入字符串的开始位置）
+				$      限定结尾（匹配字符串的结束位置）
+			转义符
+				\       用于匹配那些特殊字符（即匹配在正则中有特殊含义的字符）
+			选择匹配符
+				|      相当于or
+			正则分组
+				/hahaha/       相当于/（ha）{3}/
+				捕获型分组
+					被正则表达式匹配到的内容会被暂存起来，用$1可以获得被第一个分组捕获的内容
+				非捕获型分组
+					（？：）当不需要捕获某个分组的时候可以使用它
+		this关键字
+			(在严格模式下，普通函数的this指的是undefined)
+			非严格模式下，在全局环境下使用this,他指的就是顶层对象window
+			(普通函数里的this被谁调用它就指向谁)
+			(构造函数使用new调用，this指向的是这个函数)
+			(构造函数不使用new调用，this指的还是全局)
+			(普通函数里的this被谁调用它就指向谁)
+			bind 方法
+				bind方法用于将函数体内的this绑定到某个对象，然后返回一个新的函数
+		let关键字
+			let（定义变量）在代码块中声明的变量都是局部变量
+		const关键字
+			const 定义常量,const声明的变量不能改变值
+		箭头函数
+			let f=()=>{}
+		变量解构
+			解构数组
+				let [a,b,c]=[1,2,3]
+			解构对象
+				let {f,b}={b:0,f:1}
+		...     扩展运算符
+			将数组展开    ...arr
+			合并数组      [...[1,2],...[3,4]]//[1,2,3,4]
+			取出参数对象的所有可便利属性       {...{a:1,b:2}}///{a:1,b:2}
+		复制对象
+			Object.assign({对象1}，{对象2})//把对象2里的所有内容拷贝到对象1里
+		Set
+			数组去重
+				[...(new Set([1,2,2]))] //[1,2]
+			方法
+				size    获取Set的长度
+				add   添加
+				delete    删除
+				clear   清空
+				has   判断
+			遍历
+				set.forEach((v) => console.log( v))
+		Map
+			方法
+				set     设置
+				get     获取
+				has    判断
+				delete   删除
+				clear      清除
+				size    长度
+			遍历
+				map.forEach((k,v)=>console.log(k,v))
+				for(let [k,v] of map){console.log(k,v)}
+		class  类
+			constructor    默认方法
+			继承   extends
+				super（）
+			static   关键字   方法前面添加此关键字，此方法不会被继承，只能直接通过类调用
+		JSON   字符串和对象的转换
+			JSON.parse()    将JSON字符串转换为对象
+			JSON.stringify()     将对象转换为JSON字符串
+		eval   函数
+			计算某个字符串，并执行其中的JavaScript代码
+		localstorage
+			设置
+				localStorage.setItem('user','123')
+			获取
+				localStorage.getItem('user')
+			删除
+				localStorage.removeItem('user')
+			清空
+				localStorage.clear()
+	BOM（浏览器对象模型）
+		location对象
+			href:返回完整的URL
+			hash:返回从#开始的URL
+			seach：返回从？开始的URL
+		history对象
+			后退一页：history.go(-1)          history.back()
+			前进一页：history.go(1)       history.forwary()
+			前进两页：history.go(2)
+		事件
+			window.onresize   事件会在窗口或框架被调整大小时发生
+			window.onload     事件放生在页面加载完毕时
+			window.onscroll    监听页面的滚动
+		方法
+			assign：加载新的文档
+			reload：重新加载当前文档
+			replace（）：用心的文档替换当前文档
+			open:打开一个新的浏览器窗口或者查找一个已命名的窗口
+			close：关闭浏览器窗口
+			confirm：显示一个带有提示信息和确认及取消按钮的警告框
+			prompt：显示可提示用户进行输入的对话框
+			alert:弹出警示框
+		获取可视区域距离页面顶部的距离的兼容性写法    scrollTop=document.documentElement.scrollTop||document.body.scrollTop
+		设置可视区域距离页面顶部距离的兼容性写法： document.documentElement.scrollTop=0；document.body.scrollTop=0
